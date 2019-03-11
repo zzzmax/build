@@ -14,19 +14,19 @@ yes | cp /tmp/sumus_update.git/trunk/genesis_block.txt /etc/sumus
 chmod +x shell.gm
 chmod +x shell.gm-debug
 #add sumus service
-systemctl daemon-reload
-systemctl start sumus.service
-systemctl enable sumus.service
+#systemctl daemon-reload
+#systemctl start sumus.service
+#systemctl enable sumus.service
 #add firewald rules
 firewall-cmd  --permanent --add-rich-rule='rule family="ipv4" port port=4010 protocol="tcp" accept'
-firewall-cmd  --permanent --add-rich-rule='rule family="ipv4" port port=50805 protocol="tcp" accept'
+firewall-cmd  --permanent --add-rich-rule='rule family="ipv4" port port=50555 protocol="tcp" accept'
 systemctl restart firewalld
 #make swap 
-dd if=/dev/zero of=/swap bs=1M count=4096
-mkswap /swap
-chmod 600 /swap
-swapon /swap
-echo "/swap swap swap defaults 0 0" >> /etc/fstab
+#dd if=/dev/zero of=/swap bs=1M count=4096
+#mkswap /swap
+#chmod 600 /swap
+#swapon /swap
+#echo "/swap swap swap defaults 0 0" >> /etc/fstab
 rm -rf /tmp/sumus_update.git/
 
 
